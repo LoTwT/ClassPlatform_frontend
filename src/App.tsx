@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import * as ModelBanner from "./models/banner"
 
-import axios from "axios"
 
 function App() {
-  axios("http://localhost:8080/api/course/banners").then(res => {
-    console.log(res.data)
-  })
+  const [banners, setBanners] = useState<Array<ModelBanner.BannerData> | null>(null)
+
+  useEffect(() => {
+    (async () => {
+      let banners = await ModelBanner.getAllBanner()
+      setBanners(banners)
+    })();
+  }, [])
 
   return (
-    <div className="App">
-      aaa
+    <div>
+      <ul>
+        {banners && banners.map(banner => (
+          <li key={banner.ID}>
+            {banner.ID},
+            {banner.img}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
