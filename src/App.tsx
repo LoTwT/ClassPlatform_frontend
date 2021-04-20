@@ -1,10 +1,12 @@
-import React from 'react';
-import Login from "./components/login"
+import React from "react";
+import Login from "./components/login";
+import Header from "./components/header/header"
 
 function App() {
   return (
     <>
-      <Login />
+      <Header />
+      {/* <Login /> */}
     </>
   );
 }
