@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import "./assets/less/base.less"
+import "./assets/less/common.less"
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

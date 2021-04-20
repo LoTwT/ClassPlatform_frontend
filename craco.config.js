@@ -1,4 +1,6 @@
 const CracoAlias = require("craco-alias")
+const CracoLess = require("craco-less")
+
 const path = require("path")
 
 module.exports = {
@@ -10,6 +12,9 @@ module.exports = {
                     "@": path.resolve(__dirname, "../src")
                 }
             }
+        },
+        {
+            plugin: CracoLess,
         }
     ]
 }
