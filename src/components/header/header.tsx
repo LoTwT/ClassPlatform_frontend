@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { CategoryData, getCategory } from "../../models/category";
+import React from "react";
 
 import Category from "./category";
 import Searchbar from "./serchbar";
 import User from "./user"
 
-interface Props {
-  categories: CategoryData[];
-}
+interface Props { }
 
 export default function Header(props: Props) {
-  const [categories, setCategories] = useState(props.categories)
-
-  useEffect(() => {
-    if (!categories) {
-      getCategory().then(data => {
-        setCategories(data)
-      })
-    }
-  }, [categories])
-
   return (
     <div className="g-header">
       <div className="page">
         <div className="left">
           <Logo />
-          {categories ? (
-            <Category categories={categories} />
-          ) : ""}
+          <Category />
           <Searchbar />
         </div>
         <div className="right">
