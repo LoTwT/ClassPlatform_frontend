@@ -1,11 +1,16 @@
 import React from "react";
 import Login from "./components/login";
 import Header from "./components/header/header"
+import { CategoryData } from "./models/category";
 
-function App() {
+interface Props {
+  categories: CategoryData[]
+}
+
+function App(props: Props) {
   return (
     <>
-      <Header />
+      <Header categories={props.categories} />
       {/* <Login /> */}
     </>
   );

@@ -6,9 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import "./assets/less/base.less"
 import "./assets/less/common.less"
 
-ReactDOM.render(
+import { isDev } from "./config/app"
+
+let render = isDev ? ReactDOM.render : ReactDOM.hydrate;
+
+render(
   <React.StrictMode>
-    <App />
+    <App categories={(window as any).categories} />
   </React.StrictMode>,
   document.getElementById('root')
 );
