@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { appData } from "../../models/app"
+import { SearchResult, getHotKeywords } from "../../models/search";
 
 export default function Searchbar() {
+    const [hotKeywords, setHotKeywords] = useState<SearchResult | undefined>(appData?.hotKeywords)
+
+    useEffect(() => {
+        if (!hotKeywords) {
+            getHotKeywords().then(data => {
+                setHotKeywords(data)
+            })
+        }
+    }, [hotKeywords])
+
     return (
         <div className="searchbar">
             <div className="search">
@@ -12,13 +24,14 @@ export default function Searchbar() {
             </div>
             <div className="list">
                 <div className="title">热门搜索</div>
-                <ul>
-                    <li>ps</li>
-                    <li>高等数学</li>
-                    <li>吉他</li>
-                    <li>mybatis</li>
-                    <li>英语四级</li>
-                </ul>
+                {hotKeywords ? (
+                    <ul>
+                        {hotKeywords.map((keyword, index) => (
+                            <li key={index}>{keyword}</li>
+                        ))}
+                    </ul>
+                ) : ""}
+
             </div>
         </div>
     );

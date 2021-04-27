@@ -5,7 +5,7 @@ import { CategoryData, getCategory } from "../../models/category";
 interface Props { }
 
 export default function Category(props: Props) {
-    const [categories, setCategories] = useState<CategoryData[] | undefined>(appData.categories || (window as any).categories)
+    const [categories, setCategories] = useState<CategoryData[] | undefined>(appData?.categories)
 
     useEffect(() => {
         if (!categories) {
