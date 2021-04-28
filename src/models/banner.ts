@@ -4,10 +4,10 @@ export interface BannerData {
     ID: number;
     img: string;
     href: string;
-    sort: number;
+    color: string;
 }
 
 export async function getAllBanner(): Promise<Array<BannerData>> {
-    let { data } = await axios("/course/banners")
+    let { data } = await axios("/site/banners")
     return data
 }

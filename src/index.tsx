@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import "./assets/less/base.less"
 import "./assets/less/common.less"
+import "./assets/less/index.less"
 
 import { isDev } from "./config/app"
 

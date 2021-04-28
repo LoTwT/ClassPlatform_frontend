@@ -1,9 +1,11 @@
 import { CategoryData } from "./category";
 import { SearchResult } from "./search"
+import { BannerData } from "./banner"
 
 export interface AppData {
-    categories: CategoryData[] | undefined;
-    hotKeywords: SearchResult | undefined;
+    categories?: CategoryData[];
+    hotKeywords?: SearchResult;
+    banners?: BannerData[]
 }
 
 
@@ -15,8 +17,5 @@ export let appData: AppData
 if (typeof window != "undefined") {
     appData = (window as any).appData
 } else {
-    appData = {
-        categories: undefined,
-        hotKeywords: undefined
-    }
+    appData = {}
 }
